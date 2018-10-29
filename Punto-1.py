@@ -23,5 +23,14 @@ for i in range(len(c)):
 matriz=np.array(matriz).T
 print(matriz)
 
+#Covierte toda la matriz a floats. Para valores Benignos = 1 y Malignos =1
 
-#Commit terminal
+for i in range ( len(matriz[:])):
+    for j in range (len (matriz[:][0]) ):
+        if( i == 1):
+            if( matriz[i][j] == 'M'):
+                matriz[i][j] = 0
+            else: matriz[i][j] = 1
+        matriz[i][j] = float(matriz[i][j])
+
+
