@@ -35,16 +35,6 @@ matriz=np.array(matriz).T
 
 print (matriz)
 
-#Covierte toda la matriz a floats. Para valores Benignos = 1 y Malignos =1
-
-for i in range ( len(matriz[:])):
-    for j in range (len (matriz[:][0]) ):
-        if( i == 1):
-            if( matriz[i][j] == 'M'):
-                matriz[i][j] = 0
-            else: matriz[i][j] = 1
-        matriz[i][j] = float(matriz[i][j])
-
 #Cree una funcion para Sumar y para dar el mean ya que con NP por algún extraño motivo no me funciono. Es posible que sea por los ' ' que prevalecene n el archivo incluso despues de convertir la matriz a float.
 def sumYMean( x ):
     sum =0
