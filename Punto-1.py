@@ -41,5 +41,30 @@ def SumYMean( x ):
     mean = sum / len(x)
     return sum, mean
 
+#Covarianza
+
+def covarianza (x,y):
+    sumX, meanX = sumYMean(x)
+    sumY, meanY = sumYMean(y)
+    for i in range(len(x)):
+        for j in range(len(y)):
+            sumaCova= (float(x[i])-meanX)*(float(y[j])- meanY)
+    return sumaCova/ len(x)
+
+
+#Matriz covarianza. No vamos a tener en cuenta la variable ID ya que no tiene nada ver con tener cancer. Se dejara la variable Diagnosis para poder ver que variable es la que mas influye en esta diagnosis.
+
+cantidadVariables = len(matriz[:]) -1
+print(cantidadVariables)
+matrizCova= np.zeros((cantidadVariables, cantidadVariables) )
+for i in range (cantidadVariables):
+    for j in range (cantidadVariables):
+        if( i == 31):
+            matrizCova[i][j] = covarianza( matriz[i+1], matriz[i+1])
+        else: matrizCova[i][j] = covarianza( matriz[i+1], matriz[j+1])
+
+print (matrizCova)
+
+
 
 
