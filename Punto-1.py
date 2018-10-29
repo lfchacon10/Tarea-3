@@ -33,4 +33,13 @@ for i in range ( len(matriz[:])):
             else: matriz[i][j] = 1
         matriz[i][j] = float(matriz[i][j])
 
+#Cree una funcion para Sumar y para dar el mean ya que con NP por algún extraño motivo no me funciono. Es posible que sea por los ' ' que prevalecene n el archivo incluso despues de convertir la matriz a float.
+def SumYMean( x ):
+    sum =0
+    for i in range(len(x)):
+        sum+= float(x[i])
+    mean = sum / len(x)
+    return sum, mean
+
+
 
