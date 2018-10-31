@@ -1,6 +1,6 @@
 from scipy import fftpack
 import numpy as np
-
+import matplotlib.pyplot as plt
 
 #Punto 1: Guarda la imagen.
 img = plt.imread('arbol.png')
@@ -15,7 +15,7 @@ plt.imshow(abs(img_fourier))
 plt.show()
 
 #Punto 3: filtro de la imagen.  
-img[where(img>3500)] = 0
+img[np.where(img>3500)] = 0
 
 #Punto 4: log normal.
 logCasual = log(img_Fourier)
