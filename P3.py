@@ -17,6 +17,10 @@ plt.show()
 #Punto 3: filtro de la imagen.  
 img[where(img>3500)] = 0
 
+#Punto 4: log normal.
+logCasual = log(img_Fourier)
+plt.imshow(logCasual)
+plt.show()
 
 freqq=fftpack.fftfreq(tamano,dt)
 shiftt=fftpack.fftshift(prft)
