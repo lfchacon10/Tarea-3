@@ -18,9 +18,8 @@ fig.savefig("ChaconLuis_FT2D.pdf")
 
 
 #Punto 3: filtro de la imagen.Mejor intento
-freqq = fftpack.fftfreq(tamano, dt)
-freq_cut = 612
-imgF[abs(freqq)>freq_cut] = 0
+freq_cut = 4000
+imgF[abs(imgF)>freq_cut] = 0
 logNormal = np.log(abs(imgF))
 plt.figure()
 fig= plt.gcf()
@@ -33,6 +32,7 @@ plt.figure()
 fig= plt.gcf()
 plt.imshow(imgFinal, cmap="gray")
 fig.savefig("ChaconLuis_Imagen_filtrada.pdf")
+
 
 
 
