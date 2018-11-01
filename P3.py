@@ -11,32 +11,28 @@ dt=1/(f*32)
 
 #Punto 2: Transformada de Fourier.
 imgF = fftpack.fft2(img, shape= img.shape[:2],axes=(0,1))
-plt.savefig("ChaconLuis_FT2D.pdf")
+plt.figure()
+fig= plt.gcf()
+plt.plot( abs(imgF) )
+fig.savefig("ChaconLuis_FT2D.pdf")
 
 
-#Punto 3: filtro de la imagen.  
+#Punto 3: filtro de la imagen.Mejor intento
 freqq = fftpack.fftfreq(tamano, dt)
-shiftt= fftpack.fftshift(imgF)
-ps = abs(shiftt)
-plt.imshow(imgF.real**2 + imgF.imag**2)
-
-freq_cut = 3500.0
+freq_cut = 612
 imgF[abs(freqq)>freq_cut] = 0
 logNormal = np.log(abs(imgF))
+plt.figure()
+fig= plt.gcf()
 plt.imshow(logNormal)
-plt.show()
+fig.savefig("ChaconLuis_FT2D_filtrada.pdf")
 
-
+#Punto 4: Imagen filtrada.
 imgFinal= fftpack.ifft2(imgF).real
+plt.figure()
+fig= plt.gcf()
 plt.imshow(imgFinal, cmap="gray")
-plt.show()
+fig.savefig("ChaconLuis_Imagen_filtrada.pdf")
 
-
-cleanf=np.fft.ifft2(img,axes=(0, 1))
-cleanr=cleanf.real
-plt.figure(figsize=(10,10))
-plt.imshow(cleanr)
-plt.show()
-#Punto 4: log normal.
 
 
